@@ -3,6 +3,49 @@
 import UIKit
 import PlaygroundSupport
 
+print("Hello World")
+
+protocol Canfly{
+    func fly()
+}
+
+class Bird: Canfly {
+    func fly() {
+        print("The bird flaps its wings and lifts off into the sky")
+    }
+    
+    var isFemale = true
+    func layEgg() {
+        if isFemale{
+            print("The bird makes a new bird in a shell")
+        }
+    }
+    
+}
+struct Airplane: Canfly{
+    func fly() {
+        print("The airplane uses its engine to lift off into the air.")
+    }
+}
+
+class Eagle: Bird{
+    func soar() {
+        print("The eagle glides in the air using air currents")
+    }
+
+}
+struct FlyingMuseum{
+    func flyingDemo(flyingObject: Canfly) {
+        flyingObject.fly()
+    }
+}
+let myEagle = Eagle()
+let myMeseum = FlyingMuseum()
+let myPlane = Airplane()
+myMeseum.flyingDemo(flyingObject: myPlane)
+
+
+//comment viewcontroller
 class MyViewController : UIViewController {
     let cardView = UIView()
     let videoImageView = UIImageView()
@@ -137,4 +180,4 @@ class MyViewController : UIViewController {
 let vc = MyViewController()
 vc.preferredContentSize = CGSize(width: 320, height: 568) //iPhone X 375*812
 
-PlaygroundPage.current.liveView = vc
+PlaygroundPage.current.liveView = vc 
