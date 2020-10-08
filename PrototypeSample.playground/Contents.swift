@@ -211,8 +211,32 @@ struct Paramedic: AdvancedLifeSupport{
     
 }
 
+class Doctor: AdvancedLifeSupport{
+    //set him/her self up
+    init(handler: EmergencyCallHandler) {
+        handler.delegate = self
+    }
+    func performCPR() {
+        print("The doctor does chest compressions, 30 per second")
+    }
+    func usesStethescope() {
+        print("Listening for heart sounds")
+    }
+   
+}
+
+class Surgeon: Doctor{
+    override func performCPR() {
+        super.performCPR()
+        print("Sing staying alive by beeGees")
+    }
+    func useElectricDrill() {
+        print("whirr...")
+    }
+}
+
 //objects
 let emillio = EmergencyCallHandler()
-let pete = Paramedic(handler: emillio)
+let maestro = Surgeon(handler: emillio)
 emillio.assessSituation()
 emillio.medicalEmergency()
