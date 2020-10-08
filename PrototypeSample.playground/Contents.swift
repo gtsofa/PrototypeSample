@@ -3,7 +3,7 @@
 import UIKit
 import PlaygroundSupport
 
-print("Hello World")
+/*print("Hello World")
 
 protocol Canfly{
     func fly()
@@ -180,4 +180,39 @@ class MyViewController : UIViewController {
 let vc = MyViewController()
 vc.preferredContentSize = CGSize(width: 320, height: 568) //iPhone X 375*812
 
-PlaygroundPage.current.liveView = vc 
+PlaygroundPage.current.liveView = vc*/
+
+protocol AdvancedLifeSupport{
+    func performCPR()
+}
+
+class EmergencyCallHandler {
+    var delegate: AdvancedLifeSupport?
+    
+    func assessSituation() {
+        print("Can you tell me what happened?")
+    }
+    func medicalEmergency() {
+        //call the delegate here
+        delegate?.performCPR()
+    }
+    
+}
+
+struct Paramedic: AdvancedLifeSupport{
+    //initializer ie start shift ie get notified
+    init(handler: EmergencyCallHandler) {
+        //set themselves delegate
+        handler.delegate = self
+    }
+    func performCPR() {
+        print("The paramedic does chest compressions, 30 per second.")
+    }
+    
+}
+
+//objects
+let emillio = EmergencyCallHandler()
+let pete = Paramedic(handler: emillio)
+emillio.assessSituation()
+emillio.medicalEmergency()
