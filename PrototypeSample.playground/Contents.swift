@@ -182,7 +182,8 @@ vc.preferredContentSize = CGSize(width: 320, height: 568) //iPhone X 375*812
 
 PlaygroundPage.current.liveView = vc*/
 
-protocol AdvancedLifeSupport{
+//Protocols and delegates===
+/*protocol AdvancedLifeSupport{
     func performCPR()
 }
 
@@ -239,4 +240,12 @@ class Surgeon: Doctor{
 let emillio = EmergencyCallHandler()
 let maestro = Surgeon(handler: emillio)
 emillio.assessSituation()
-emillio.medicalEmergency()
+emillio.medicalEmergency()*/
+
+//Closures
+print("hello there my wife is complainging")
+let driving = { (place: String) in
+    print("I am going to \(place) in my car")
+}
+
+driving("Madunguni")
