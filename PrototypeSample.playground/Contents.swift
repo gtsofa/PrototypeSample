@@ -243,9 +243,54 @@ emillio.assessSituation()
 emillio.medicalEmergency()*/
 
 //Closures
-print("hello there my wife is complainging")
+/*print("hello there my wife is complainging")
 let driving = { (place: String) in
     print("I am going to \(place) in my car")
 }
 
 driving("Madunguni")
+
+//returning values
+let drivingWithReturn = { (place: String) -> String in
+    return "I am going to \(place) in my car."
+    
+}
+drivingWithReturn("Malanga")*/
+
+// closures as parameters
+let drivingAnother = {
+    print("Im a bad driving geniuous")
+}
+
+func travel(action: () -> Void ) {
+    print("I am getting ready to go.==Before")
+    action()
+    print("I arrived now.==After")
+}
+//call func using our drivingAnother closure
+travel(action: drivingAnother)
+
+//trailing closures
+func travelTrailing(action: () -> Void) {
+    print("I am getting ready to go.==Before")
+    action()
+    print("I arrived now.==After")
+}
+
+travelTrailing() {
+    print("Im driving in my car")
+}
+
+travelTrailing {
+    print("Im driving in my car")
+}
+
+//closures, part two.. closures with parameters
+func travelParameters(action: (String) -> Void) {
+    print("Im getting ready to go")
+    action("Matsangoni")
+    print("I arrived")
+}
+
+
+
