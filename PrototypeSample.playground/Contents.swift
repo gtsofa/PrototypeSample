@@ -258,7 +258,7 @@ let drivingWithReturn = { (place: String) -> String in
 drivingWithReturn("Malanga")*/
 
 // closures as parameters
-let drivingAnother = {
+/*let drivingAnother = {
     print("Im a bad driving geniuous")
 }
 
@@ -283,13 +283,74 @@ travelTrailing() {
 
 travelTrailing {
     print("Im driving in my car")
-}
+}*/
 
 //closures, part two.. closures with parameters
-func travelParameters(action: (String) -> Void) {
-    print("Im getting ready to go")
+/*func travelParameters(action: (String) -> Void) {
+    print("Im getting ready to go==BEFORE")
     action("Matsangoni")
-    print("I arrived")
+    print("I arrived.==AFTER")
+}
+
+//call func using closures
+travelParameters { (place: String) in
+    print("Im going to \(place) in my carr.")
+    
+}*/
+
+/*func fix(item: String, payBill: (Int) -> Void) {
+    print("I've fixed your \(item)")
+    payBill(450)
+}
+fix(item: "roof") { (bill: Int) in
+    print("You want $\(bill) for that? Outrageous!")
+}
+
+func study(reviseNotes: (String) -> Void) {
+    let notes = "Napoleon was a short, dead dude."
+    for _ in 1...10 {
+        reviseNotes(notes)
+    }
+}
+study { (notes: String) in
+    print("I'm reading my notes: \(notes)")
+}
+
+
+func getDirections(to destination: String, then travel: ([String]) -> Void) {
+    let directions = [
+        "Go straight ahead",
+        "Turn left onto Station Road",
+        "Turn right onto High Street",
+        "You have arrived at \(destination)"
+    ]
+    travel(directions)
+}
+getDirections(to: "London") { (directions: [String]) in
+    print("I'm getting my car.")
+    for direction in directions {
+        print(direction)
+    }
+}
+
+func getMeasurement(handler: (Double) -> Void) {
+    let measurement = 32.2
+    handler(measurement)
+}
+getMeasurement { (measurement: Double) in
+    print("It measures \(measurement).")
+}*/
+
+//closures with return values
+func travel(action: (String) -> String) {
+    print("I'm getting ready to go.")
+    let description = action("Mitsarani")
+    print(description)
+    print("I arrived!")
+}
+
+travel { (place: String) -> String in
+    return "I am going to \(place) in my carr"
 }
 
 
